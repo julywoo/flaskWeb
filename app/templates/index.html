@@ -3,8 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+
+    <link href="{{ url_for('static',filename='bootstrap/css/bootstrap.css') }}" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="{{ url_for('static',filename='bootstrap/js/bootstrap.min.js') }}"></script>
 </head>
+
 <body>
+{% extends "layout.html" %}
+
+{% block body %}
 <h2>Hello Flask Web</h2>
+
+    <div class="container">
+    <h2>등록된 사용자</h2>
+        {% for item in users %}
+            <a href="/profile/{{ item.id }}">{{ item.name }}</a></br>
+         {% endfor %}
+    </div>
+{% endblock %}
+
+</div>
 </body>
 </html>

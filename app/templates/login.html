@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "layout.html" %}
+{% block body %}
+<form action="/login" method="post">
+    <h3>로그인</h3>
+    <input type="text" name="email" placeholder="email"/><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <input type="submit" value="login" /><br>
+</form>
+{% endblock %}
+</body>
+</html>

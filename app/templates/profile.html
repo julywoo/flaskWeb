@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% extends "layout.html" %}
+{% block body %}
+<nav>
+<div>
+    {% if session.logged_in %}
+    <p>{{ session.name }}님 환영합니다. </p>
+    {% endif %}
+</div>
+
+<div>
+    <ul>
+        {% if not session.logged_in %}
+            <li><a href="/login-form">로그인</a> </li>
+        {% else %}
+            <li><a href="/logout">로그아웃</a> </li>
+        {% endif %}
+    </ul>
+</div>
+
+<div>
+    <p>{{ user.name }}</p>
+    <img src="{{ url_for('static',filename=user.image)}}"  style="height: 300px;width: 300px"/>
+
+</div>
+
+</nav>
+{% endblock %}
+</body>
+</html>
